@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navigation from "./components/Navigation";
 import { todos } from './todos.json'
+import TodoForm from './components/TodoForm';
 
 class App extends Component {
   constructor() {
@@ -10,7 +11,15 @@ class App extends Component {
     this.state = {
       todos
     }
+    this.handlAddTask = this.handlAddTask.bind(this);
   }
+
+  handlAddTask(todo){
+    this.setState({
+      todos: [...this.state.todos, todo]
+    });
+  }
+
   render() {
     const todos = this.state.todos.map((todo, i) => {
       return (
@@ -37,8 +46,15 @@ class App extends Component {
           <Navigation todos={this.state.todos} />
           <div className="container">
             <div className="row mt-4">
-              { todos }
-            </div>
+                <div className="col-md-4 text-center">
+                  <TodoForm onAddTask={this.handlAddTask}/> 
+                </div>
+                <div className="col-md-8">
+                  <div className="row">
+                    { todos }
+                  </div>
+                </div>
+              </div>
           </div>
           <img src={logo} className="App-logo" alt="logo" />
       </div>
