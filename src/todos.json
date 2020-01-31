@@ -17,6 +17,12 @@
             "responsable": "Joseph",
             "description": "lorem ipsum 3",
             "priority": "high"
+        },
+        {
+            "title": "Task 3",
+            "responsable": "Joseph",
+            "description": "lorem ipsum 3",
+            "priority": "high"
         }
     ]
 }
